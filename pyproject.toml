@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "model-cli"
+version = "0.1.0"
+description = "A CLI for training, evaluating, and inferring models"
+license = { text = "MIT" }
+dependencies = [
+    "torch",
+    "accelerate",
+    "diffusers==0.32.0",
+    "transformers<=4.50.3",
+    "torchvision",
+    "pandas",
+    "matplotlib",
+    "scikit-learn",
+    "opencv-python",
+    "prettytable",
+    "tqdm",
+    "kornia",
+    "onnxruntime",
+    "bitsandbytes",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+
+# Entry points for the command-line interface (CLI)
+[project.scripts]
+ml-tool = "src.__main__:main"
